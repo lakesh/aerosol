@@ -4,12 +4,13 @@ function F = calculate_weight(w)
     
     row = size(w,1);
    
-    F=zeros(row+1,1);
+    F=zeros(row,1);
     for i=1:row-1
         equation = 0;
         for j=1:row-1
             equation = equation +  w(j)*A*exp(lambda * distance_neighbors(i,j));
         end
+        % w(row) is the Lagrange's multiplier
         equation = equation + w(row) - A*exp(lambda*distance_interp(i,1));
         F(i) = equation;
     end
