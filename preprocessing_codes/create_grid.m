@@ -9,7 +9,7 @@ function [grid] = create_grid()
     
     x=leftBoundary:deltaX:rightBoundary;
     width=size(x,2);
-    height=186;
+    height=196;
     grid = zeros(height,width,2);
     
     %latitude of the lowest row
