@@ -7,7 +7,7 @@ path='/home/lakesh/Desktop/';
 years=[2007];
 
 %USA geographic  boundary
-leftBoundary=-124.848974;
+leftBoundary=-129;
 rightBoundary=-66.885444;
 bottomBoundary=24.396308;
 topBoundary=49.384358;
