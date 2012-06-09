@@ -1,8 +1,8 @@
 function filter_misr()
 
 
-source_path='/home/lakesh/Desktop/misr_extracted_2007/';
-dest_path='/home/lakesh/Desktop/misr_final_2007/';
+source_path='/home/lakesh/Desktop/misr_extracted_2006/';
+dest_path='/home/lakesh/Desktop/misr_final_2006/';
 
 days=365;
 
