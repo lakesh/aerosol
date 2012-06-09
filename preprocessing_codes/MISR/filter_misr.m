@@ -33,7 +33,7 @@ for i=1:days
         data(index:(index+row-1),7) = misrData(:,8);
         index = index+row;
     end
-    
+    data = data(1:index-1,:);
     save([dest_path num2str(i) '.mat'], 'data');
    
 end
