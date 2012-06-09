@@ -1,5 +1,5 @@
-path='/home/lakesh/Desktop/modis_extracted_2004/';
-dest_path='/home/lakesh/Desktop/modis_filtered_2004/';
+path='/home/lakesh/Desktop/modis_extracted_2005/';
+dest_path='/home/lakesh/Desktop/modis_filtered_2005/';
 
 AODFileList = dir([path '/*.mat']);
 
