@@ -49,7 +49,7 @@ tic;
                 interpolatedData(i,j,7) = interp_value;
                 %Quality mask
                 interpolatedData(i,j,8) = griddata(region_data(:,1),region_data(:,2),region_data(:,8),interpolation_point_lat,interpolation_point_lon,'nearest');
-            catch e
+            catch e 
                 
             end
         end
