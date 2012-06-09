@@ -20,8 +20,12 @@ for day=1:365
     interpolatedData(:,:,3) = year;
     interpolatedData(:,:,4) = day;
     interpolatedData(:,:,5) = griddata(data(:,1),data(:,2), data(:,5),grid(:,:,1),grid(:,:,2),'nearest');
-    interpolatedData(:,:,6) = griddata(data(:,1),data(:,2),data(:,5),grid(:,:,1),grid(:,:,2),'nearest');
-    interpolatedData(:,:,7) = tinterp(p, t, f, grid(:,:,1),grid(:,:,2),'linear');
+    interpolatedData(:,:,6) = griddata(data(:,1),data(:,2),data(:,6),grid(:,:,1),grid(:,:,2),'nearest');
+    try 
+        interpolatedData(:,:,7) = tinterp(p, t, f, grid(:,:,1),grid(:,:,2),'linear');
+    catch e
+        
+    end
     interpolatedData(:,:,8) = griddata(data(:,1),data(:,2),data(:,8),grid(:,:,1),grid(:,:,2),'nearest');
     save([dest_path num2str(day) '.mat'],'interpolatedData');
 end
