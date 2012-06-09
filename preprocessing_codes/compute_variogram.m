@@ -154,12 +154,13 @@ for i=1:row-1
                 interp_value = region_data(1,8);
             end
         else
+            tic;
             left_boundary =  interpolation_point_lon - delta_X_interp;
             right_boundary =  interpolation_point_lon + delta_X_interp;
             bottom_boundary =  interpolation_point_lat - delta_Y_interp;
             top_boundary =  interpolation_point_lat + delta_Y_interp;
 
-            index = find(data(:,1) > left_boundary & data(:,1) < right_boundary & data(:,2) < top_boundary & data(:,2) > bottom_boundary);
+            index = find(data(:,2) > left_boundary & data(:,2) < right_boundary & data(:,1) < top_boundary & data(:,1) > bottom_boundary);
             region_data = data(index,:);
 
             %Find the points having non null values and quality data
@@ -172,7 +173,7 @@ for i=1:row-1
                 interp_value = interp_value + region_data(k,8);
             end
             interp_value = interp_value / numberOfPoints;
-            
+            toc;
         end
         
         interpolatedData(i,j) = interp_value;
