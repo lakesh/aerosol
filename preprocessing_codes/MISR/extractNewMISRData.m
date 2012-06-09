@@ -8,10 +8,10 @@ dateConverterPath = '/home/lakesh/Desktop/preprocessing codes/MISR/';
 dest_path = '/home/lakesh/Desktop/misr_extracted_2006/';
 
 %USA geographical bounding box
-leftBoundary=-124.848974;
-rightBoundary=-66.885444;
-bottomBoundary=24.396308;
-topBoundary=49.384358;
+leftBoundary=-126;
+rightBoundary=-62;
+bottomBoundary=25;
+topBoundary=50;
 
 
 %Random initialization for the size of the data points
