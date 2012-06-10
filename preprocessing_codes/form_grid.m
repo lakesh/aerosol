@@ -8,7 +8,7 @@ function form_grid()
     for i=1:row-1
         for j=1:column-1
             grid_centralized(i,j,1) = (grid(i,j,1) + grid(i+1,j,1)) / 2;
-            grid_centralized(i,j,2) = (grid(i,j,2) + grid(i+1,j,2)) / 2;
+            grid_centralized(i,j,2) = (grid(i,j,2) + grid(i,j+1,2)) / 2;
             index = index+1;
         end
     end

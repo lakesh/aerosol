@@ -1,6 +1,6 @@
 function process_aeronet_each_year()
 
-    year = 2007;
+    year = 2003;
     
     %Number of attributes of aeronet data
     columns = 18;

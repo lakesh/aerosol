@@ -1,12 +1,12 @@
 grid_path = '/Users/lakesh/Aerosol/preprocessing_codes/final_grid_v2.mat';
 load(grid_path);
 
-source_path='/Users/lakesh/Aerosol/misr_final_2005/';
-dest_path='/Users/lakesh/Aerosol/misr_interpolated_2005/';
+source_path='/Users/lakesh/Aerosol/misr_final_2007/';
+dest_path='/Users/lakesh/Aerosol/misr_interpolated_2007/';
 
 [row column dimension] = size(grid);
 
-year = 2005;
+year = 2007;
 
 tic;
 for day=1:365
