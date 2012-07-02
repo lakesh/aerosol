@@ -1,4 +1,4 @@
-dest_path = '/Users/lakesh/Aerosol/misr_nan_2006/';
+dest_path = '/Users/lakesh/Aerosol/misr_nan_2004/';
 
 for day=1:365
     try 
