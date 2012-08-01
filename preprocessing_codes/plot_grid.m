@@ -5,9 +5,7 @@ function plot_grid()
     coordinate_path = '/Users/lakesh/Aerosol/preprocessing_codes/';
     
     %Load the grid coordinates
-    load([coordinate_path 'xq.mat']);
-    load([coordinate_path 'yq.mat']);
-    load([coordinate_path 'grid.mat']);
+    load([coordinate_path 'grid_30x30.mat']);
     
     [row column dimension] = size(grid);
     
@@ -22,15 +20,15 @@ function plot_grid()
     'FaceColor', polcmap(numel(states))});
     geoshow(ax, states, 'SymbolSpec', faceColors)
     
-    
-    for j=1:10:column
+    %Plot the coordinates
+    for j=1:5:column
         for i=1:row
             plotm(grid(i,j,1),grid(i,j,2),'.');
         end
     end
     
     for j=1:column
-        for i=1:10:row
+        for i=1:5:row
             plotm(grid(i,j,1),grid(i,j,2),'.');
         end
     end

@@ -1,4 +1,4 @@
-path='/Users/lakesh/Aerosol/preprocessing_codes/grid.mat';
+path='/Users/lakesh/Aerosol/preprocessing_codes/grid_30x30.mat';
 load(path);
 
 [row column dimension] = size(grid);
