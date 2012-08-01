@@ -122,9 +122,9 @@ A1  = abs(dp3(:,1).*dp2(:,2)-dp3(:,2).*dp2(:,1));
 
 %%%%% Added by Lakesh Kansakar %%%%%%%%%
 %Find the ones with missing attributes
-missing_t1 = find(f(t1) < 0);
-missing_t2 = find(f(t2) < 0);
-missing_t3 = find(f(t3) < 0);
+missing_t1 = find(f(t1) <= 0);
+missing_t2 = find(f(t2) <= 0);
+missing_t3 = find(f(t3) <= 0);
 
 A1(missing_t1) = 0;
 A2(missing_t2) = 0;
