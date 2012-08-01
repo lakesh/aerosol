@@ -2,9 +2,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%from Kosta's data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-path='/home/lakesh/Desktop/';
-years=[2006];
-dest_path='/home/lakesh/Desktop/modis_extracted_2006/';
+path='/home/lakesh/Desktop/backup_may31_2012/Code/MODIS_AOD/';
+years=2006;
+dest_path='/home/lakesh/Desktop/modis_extracted_2004_remaining/';
 
 %USA geographic boundary
 leftBoundary=-129;
@@ -20,7 +20,7 @@ width=203;
 height=135;
 
 for y=1:length(years)
-    AODFileList = dir([path 'modis_' num2str(years(y)) '/*.mat']);
+    AODFileList = dir([path num2str(years(y)) '/*.mat']);
 
     for counter=1:length(AODFileList)
         AODFileName = AODFileList(counter).name;

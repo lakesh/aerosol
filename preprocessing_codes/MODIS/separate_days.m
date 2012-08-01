@@ -1,12 +1,12 @@
 function separate_days()
     path='/home/lakesh/Desktop/modis_filtered_2004/';
     dest_path='/home/lakesh/Desktop/modis_final_2004/';
-    year = 2005;
+    year = 2004;
     
     AODFileList = dir([path '*.mat']);
     
     for day=1:365
-        modis_data = zeros(10000,8);
+        modis_data = zeros(1,12);
         index = 1;
         for counter=1:length(AODFileList)
             AODFileName = AODFileList(counter).name;

@@ -8,10 +8,10 @@ dateConverterPath = '/home/lakesh/Desktop/preprocessing codes/MISR/';
 dest_path = '/home/lakesh/Desktop/misr_extracted_2006/';
 
 %USA geographical bounding box
-leftBoundary=-126;
-rightBoundary=-62;
-bottomBoundary=25;
-topBoundary=50;
+leftBoundary=-128;
+rightBoundary=-60;
+bottomBoundary=22;
+topBoundary=54;
 
 
 %Random initialization for the size of the data points
@@ -52,7 +52,7 @@ for counter=1:length(days)
 
             startBlock = START_BLOCK(1,1);
             endBlock = END_BLOCK(1,1);
-	        timeBlock = PerBlockMetaDataTime{1};
+	    timeBlock = PerBlockMetaDataTime{1};
             marker=startBlock:endBlock;
             time = timeBlock(:,marker);
             time = time';
