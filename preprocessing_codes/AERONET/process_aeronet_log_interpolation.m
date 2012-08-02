@@ -18,19 +18,31 @@ function process_aeronet_log_interpolation()
         aeronetdata_new = zeros(row,column+4);
         aeronetdata_new(:,1:column)=aeronetdata;
         
-        
+        index=1;
         for j=1:row
-            %latitude
-            aeronetdata_new(j,column+1) = latitude;
-            %longitude
-            aeronetdata_new(j,column+2) = longitude;
             %AOD at 558
             %Angstrom exponent using AOD at 675 and 440nm
-            alpha = -log(aeronetdata(j,9)/aeronetdata(j,11)) / log(675/440);
-            AOD_Value = aeronetdata(j,9) * (675/558)^alpha;
-            aeronetdata_new(j,column+3) = AOD_Value;
-            %site_number(just for reference)
-            aeronetdata_new(j,column+4) = i;
+            if (isreal(aeronetdata(j,9)) == 1 && isreal(aeronetdata(j,11)) == 1 && aeronetdata(j,9) > 0 && aeronetdata(j,11) > 0)
+                alpha = -log(aeronetdata(j,9)/aeronetdata(j,11)) / log(675/440);
+                AOD_Value = aeronetdata(j,9) * (675/558)^alpha;
+                
+                if(isreal(AOD_Value) == 0)   
+                    disp(aeronetdata(j,9));
+                    disp(aeronetdata(j,11));
+                    disp(AOD_Value);
+                end
+                
+                
+                %latitude
+                aeronetdata_new(index,column+1) = latitude;
+                %longitude
+                aeronetdata_new(index,column+2) = longitude;
+            
+                aeronetdata_new(index,column+3) = AOD_Value;
+                %site_number(just for reference)
+                aeronetdata_new(index,column+4) = i;
+                index=index+1;
+            end
         end
         aeronetdata = aeronetdata_new;
         

@@ -2,7 +2,7 @@ function [inputData]= loaddata_v2()
 
     %For year 2004%
     interpolatedMISRPath = '/Users/lakesh/Aerosol/misr_nan_2004/';
-    interpolatedMODISPath = '/Users/lakesh/Aerosol/modis_nan_2004/';
+    interpolatedMODISPath = '/home/lakesh/Desktop/modis_nan_2004/';
 
     row = 95;
     column = 155;
@@ -51,9 +51,11 @@ function [inputData]= loaddata_v2()
             %marker = find(qas == 4);
             %Set the low quality aod data to 0
             %aods(marker,:) = 0;
-            
+            %AOD Value
             inputData(index:index+N-1,8) = aods;
+            %hour
             inputData(index:index+N-1,9) = interpolatedData(:,5);
+            %minute
             inputData(index:index+N-1,10) = interpolatedData(:,6);
             index = index + N;
         catch err
