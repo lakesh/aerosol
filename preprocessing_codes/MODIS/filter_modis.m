@@ -1,5 +1,5 @@
-path='/home/lakesh/Desktop/modis_extracted_2004/';
-dest_path='/home/lakesh/Desktop/modis_filtered_2004/';
+path='/home/lakesh/Desktop/modis_extracted_2007/';
+dest_path='/home/lakesh/Desktop/modis_filtered_2007/';
 
 AODFileList = dir([path '*.mat']);
 
@@ -24,7 +24,7 @@ for counter=1:length(AODFileList)
     data(:,10) = dataPoints(:,86);
     save([dest_path AODFileName],'data');
     
-    %QA_Conf_470
+    %QA_Conf_660
     data(:,11) = dataPoints(:,50);
     save([dest_path AODFileName],'data');
 

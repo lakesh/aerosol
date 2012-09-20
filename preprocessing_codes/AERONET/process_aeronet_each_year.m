@@ -1,13 +1,13 @@
 function process_aeronet_each_year()
 
-    year = 2003;
+    year = 2007;
     
     %Number of attributes of aeronet data
     columns = 18;
     
-    aeronet_path='/Users/lakesh/Aerosol/aeronet_processed_log_interpolation/';
-    aeronet_list_file='/Users/lakesh/Aerosol/preprocessing_codes/AERONET/sorted.txt';
-    dest_path = ['/Users/lakesh/Aerosol/aeronet_each_year/' num2str(year) '/'];
+    aeronet_path='/home/lakesh/Aerosol/aeronet_processed_log_interpolation/';
+    aeronet_list_file='/home/lakesh/Aerosol/preprocessing_codes/AERONET/sorted.txt';
+    dest_path = ['/home/lakesh/Aerosol/aeronet_each_year/' num2str(year) '/'];
    
     sites = textread(aeronet_list_file,'%s');
     sites_number = size(sites,1);

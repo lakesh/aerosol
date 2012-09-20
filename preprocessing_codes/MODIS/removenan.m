@@ -1,4 +1,4 @@
-dest_path = '/home/lakesh/Desktop/modis_nan_2004/';
+dest_path = '/home/lakesh/Desktop/modis_nan_2007/';
 
 for day=1:365
     try 

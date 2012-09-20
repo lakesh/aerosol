@@ -1,7 +1,7 @@
 function separate_days()
-    path='/home/lakesh/Desktop/modis_filtered_2004/';
-    dest_path='/home/lakesh/Desktop/modis_final_2004/';
-    year = 2004;
+    path='/home/lakesh/Desktop/modis_filtered_2007/';
+    dest_path='/home/lakesh/Desktop/modis_final_2007/';
+    year = 2007;
     
     AODFileList = dir([path '*.mat']);
     

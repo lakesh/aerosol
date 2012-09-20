@@ -2,9 +2,9 @@
 %the aeronet sites
 
 function process_aeronet_log_interpolation()
-    aeronet_path='/Users/lakesh/Aerosol/aeronet_processed_dayofyear/';
-    aeronet_list_file='/Users/lakesh/Aerosol/preprocessing_codes/AERONET/sorted.txt';
-    dest_path = '/Users/lakesh/Aerosol/aeronet_processed_log_interpolation/';
+    aeronet_path='/home/lakesh/Aerosol/aeronet_processed_dayofyear/';
+    aeronet_list_file='/home/lakesh/Aerosol/preprocessing_codes/AERONET/sorted.txt';
+    dest_path = '/home/lakesh/Aerosol/aeronet_processed_log_interpolation/';
     
     
     sites = textread(aeronet_list_file,'%s');

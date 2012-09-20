@@ -1,21 +1,21 @@
-years=[2006];
-path='/home/lakesh/Desktop/backup_may31_2012/misr_2006/';
+years=[2005];
+path='/home/lakesh/Desktop/misr_new_extracted_2005/';
 
 %This consists of the geographic information like latitude and longitude of the data points
-coordinatePath='/home/lakesh/Desktop/preprocessing codes/MISR/coordinates/';
+coordinatePath='/home/lakesh/Aerosol/preprocessing_codes/MISR/coordinates/';
 
-dateConverterPath = '/home/lakesh/Desktop/preprocessing codes/MISR/';
-dest_path = '/home/lakesh/Desktop/misr_extracted_2006/';
+dateConverterPath = '/home/lakesh/Aerosol/preprocessing_codes/MISR/';
+dest_path = '/home/lakesh/Desktop/misr_extracted_2005/';
 
 %USA geographical bounding box
-leftBoundary=-128;
-rightBoundary=-60;
-bottomBoundary=22;
-topBoundary=54;
+leftBoundary=-129;
+rightBoundary=-62;
+bottomBoundary=24;
+topBoundary=50;
 
 
 %Random initialization for the size of the data points
-misrData=zeros(1425060,15);
+misrData=zeros(1425060,16);
 index=1;
 cd(path);
 days=dir('./');
@@ -52,7 +52,7 @@ for counter=1:length(days)
 
             startBlock = START_BLOCK(1,1);
             endBlock = END_BLOCK(1,1);
-	    timeBlock = PerBlockMetaDataTime{1};
+	        timeBlock = PerBlockMetaDataTime{1};
             marker=startBlock:endBlock;
             time = timeBlock(:,marker);
             time = time';
@@ -74,6 +74,7 @@ for counter=1:length(days)
             ViewZenithAngle = ViewZenithAngle(marker,:,:,:);
             RealViewCameraAzimuthAngle = RealViewCameraAzimuthAngle(marker,:,:,:);
             SolarZenithAngle = SolarZenithAngle(marker,:,:);
+            RegBestEstimateQA = RegBestEstimateQA(marker,:,:);
 
             current_pointer = 1;
 
@@ -105,14 +106,24 @@ for counter=1:length(days)
                     misrData(current_pointer:(current_pointer+pointer-1),5) = dataPointLatitude;
                     %longitude
                     misrData(current_pointer:(current_pointer+pointer-1),6) = dataPointLongitude;
+                    
+                    %AOD_446
                     RegBestEstimateSpectralOptDepth_446 = RegBestEstimateSpectralOptDepth(i,:,:,1);
                     misrData(current_pointer:(current_pointer+pointer-1),7) = RegBestEstimateSpectralOptDepth_446(index);
+                    
+                    %AOD_558
                     RegBestEstimateSpectralOptDepth_558 = RegBestEstimateSpectralOptDepth(i,:,:,2);
                     misrData(current_pointer:(current_pointer+pointer-1),8) = RegBestEstimateSpectralOptDepth_558(index);
+                    
+                    %AOD_672
                     RegBestEstimateSpectralOptDepth_672 = RegBestEstimateSpectralOptDepth(i,:,:,3);
-                    misrData(current_pointer:(current_pointer+pointer-1),9) = RegBestEstimateSpectralOptDepth(index);
+                    misrData(current_pointer:(current_pointer+pointer-1),9) = RegBestEstimateSpectralOptDepth_672(index);
+                    
+                    %AOD_886
                     RegBestEstimateSpectralOptDepth_886 = RegBestEstimateSpectralOptDepth(i,:,:,4);
                     misrData(current_pointer:(current_pointer+pointer-1),10) =  RegBestEstimateSpectralOptDepth_886(index);
+                    
+                    
                     GlitterAngle_5 = GlitterAngle(i,:,:,5);
                     misrData(current_pointer:(current_pointer+pointer-1),11) = GlitterAngle_5(index);
                     ScatteringAngle_5 = ScatteringAngle(i,:,:,5);
@@ -121,8 +132,13 @@ for counter=1:length(days)
                     misrData(current_pointer:(current_pointer+pointer-1),13) =  ViewZenithAngle_5(index);
                     RealViewCameraAzimuthAngle_5 = RealViewCameraAzimuthAngle(i,:,:,5);
                     misrData(current_pointer:(current_pointer+pointer-1),14) = RealViewCameraAzimuthAngle_5(index);
-                    SolarZenithAngle_5 = SolarZenithAngle(i,:);
-                    misrData(current_pointer:(current_pointer+pointer-1),15) = SolarZenithAngle_5(index);     
+
+                    SolarZenithAngle_1 = SolarZenithAngle(i,:,:);
+                    misrData(current_pointer:(current_pointer+pointer-1),15) = SolarZenithAngle_1(index);  
+                  
+                    QA_1 = RegBestEstimateQA(i,:,:);
+                    misrData(current_pointer:(current_pointer+pointer-1),16) = QA_1(index);     
+
                     current_pointer = current_pointer + pointer;
                 end
             end

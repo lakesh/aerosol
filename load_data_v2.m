@@ -1,15 +1,15 @@
 function [inputData]= loaddata_v2()
 
     %For year 2004%
-    interpolatedMISRPath = '/Users/lakesh/Aerosol/misr_nan_2004/';
-    interpolatedMODISPath = '/home/lakesh/Desktop/modis_nan_2004/';
+    interpolatedMISRPath = '/home/lakesh/Desktop/misr_nan_2007/';
+    interpolatedMODISPath = '/home/lakesh/Desktop/modis_nan_2005/';
 
     row = 95;
     column = 155;
     N = row*column;
     
     inputData = zeros(N,10);
-    year = 2004;
+    year = 2005;
     index =1;
     
     %Load the MISR data

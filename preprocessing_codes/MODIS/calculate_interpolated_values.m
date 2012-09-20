@@ -1,12 +1,12 @@
 grid_path = '/home/lakesh/Aerosol/preprocessing_codes/projected_grid.mat';
 load(grid_path);
 
-source_path='/home/lakesh/Desktop/modis_final_qa_2004/';
-dest_path='/home/lakesh/Desktop/modis_interpolated_2004/';
+source_path='/home/lakesh/Desktop/modis_final_qa_2006/';
+dest_path='/home/lakesh/Desktop/modis_interpolated_2006/';
 
 [row column] = size(grid);
 
-year = 2004;
+year = 2006;
 
 tic;
 for day=1:365
@@ -26,7 +26,7 @@ for day=1:365
         try 
             interpolatedData(:,7) = tinterp(p, t, f, grid(:,1),grid(:,2),'linear');
         catch e
-
+            disp(e);
         end
         interpolatedData(:,8) = griddata(data(:,1),data(:,2),data(:,8),grid(:,1),grid(:,2),'nearest');
         save([dest_path num2str(day) '.mat'],'interpolatedData');

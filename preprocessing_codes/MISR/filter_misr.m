@@ -31,6 +31,9 @@ for i=1:days
         data(index:(index+row-1),6) = misrData(:,4);
         %AOD_558
         data(index:(index+row-1),7) = misrData(:,8);
+        %QA
+        data(index:(index+row-1),8) = misrData(:,16);
+
         index = index+row;
     end
     data = data(1:index-1,:);

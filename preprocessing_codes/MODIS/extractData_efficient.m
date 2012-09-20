@@ -2,15 +2,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%from Kosta's data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-path='/home/lakesh/Desktop/backup_may31_2012/Code/MODIS_AOD/';
-years=2006;
+path='/home/lakesh/Desktop/backup_may31_2012/Code/MODIS_AOD/selected/';
+years=2004;
 dest_path='/home/lakesh/Desktop/modis_extracted_2004_remaining/';
 
 %USA geographic boundary
-leftBoundary=-129;
+leftBoundary=-130;
 rightBoundary=-62;
-bottomBoundary=24;
-topBoundary=50;
+bottomBoundary=22;
+topBoundary=52;
 
 %Random initialization for the number of data points
 
@@ -20,11 +20,11 @@ width=203;
 height=135;
 
 for y=1:length(years)
-    AODFileList = dir([path num2str(years(y)) '/*.mat']);
+    AODFileList = dir([path  '/*.mat']);
 
     for counter=1:length(AODFileList)
         AODFileName = AODFileList(counter).name;
-        data = load([path 'modis_' num2str(years(y)) '/' AODFileName]);
+        data = load([path  AODFileName]);
         latitudeData=data.Latitude;
         longitudeData=data.Longitude;
         disp(AODFileName);
